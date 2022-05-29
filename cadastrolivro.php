@@ -1,4 +1,3 @@
-<h1>Cadastro Livro</h1>
 <!doctype html>
 <html lang="pt-BR">
   <head>
@@ -8,35 +7,82 @@
 
     <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <title>Cadastro</title>
   </head>
   <body>
+    <style>
+        #Cor
+        {
+            text-align: center;
+            color: white;     
+        }
+      </style>
+  <STYLE TYPE="text/css">
+    BODY {background-image: url(https://initiate.alphacoders.com/images/919/cropped-1920-1080-919004.jpg?6078); }
+</STYLE>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Livraria</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cadastrolivro.php">Cadastro de livro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="?page=alterar">Alteração de informação de livro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Exclusão de livro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Alugar livro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pensando...</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
 </form>  
 <form method ="POST"  action= "salvarcadastro.php" enctype= "multipart/form-data"> 
-    <div class="mb-3">
-        <label>Titulo do livro</label>
-        <input type="text" name="nomeLivro" class="form-control">
+<div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+            <h3 id= "Cor">Cadastro do livro</h3>
+            <p class="blue-text" id= "Cor">Coloque as informações necessarias</p><br><br><br><br>
+            <div class="card">
+                <h5 class="text-center mb-4">Cadastro</h5>
+                <form class="form-card" onsubmit="event.preventDefault()">
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nome do livro<span class="text-danger"> *</span></label> <input type="text" name="nomeLivro" class="form-control"></div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nome do autor<span class="text-danger"> *</span></label> <input type="text" name="nomeAutor" class="form-control"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nome da editora<span class="text-danger"> *</span></label> <input type="text" name="editor" class="form-control"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Preço do livro<span class="text-danger"> *</span></label> <input type="number" name="preco" class="form-control"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Quantidade de livro<span class="text-danger"> *</span></label> <input type="number" name="quantidade" class="form-control"></div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Quantidade de livro<span class="text-danger"> *</span></label> <input type="date" name="dataLancamento" class="form-control"></div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div><br><button class = "btn btn-primary" type="submit">Cadastrar</button> </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="mb-3">
-        <label>Nome do autor</label>
-        <input type="text" name="nomeAutor" class="form-control">
-    </div>
-    <div class="mb-3">
-        <label>Editora do livro</label>
-        <input type="text" name="editora" class="form-control">
-    </div>
-    <div class="mb-3">
-        <label>Preço do livro</label>
-        <input type="number" name="preco" class="form-control">
-    </div>
-    <div class="mb-3">
-        <label>Quantidade de livros</label>
-        <input type="number" name="quantidade" class="form-control">
-    </div>
-    <div class="mb-3">
-        <button class = "btn btn-primary" type="submit">Cadastrar</button>
-    </div>
+</div>
 </form>
 
     <script src="js/bootstrap.bundle.min.js"></script>

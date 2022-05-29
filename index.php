@@ -1,3 +1,11 @@
+<?php
+/* include 'connect.php';
+if(empty($_POST['usuario']) || empty($_POST['senha']))
+{
+  header('location:login.php');
+} */
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
