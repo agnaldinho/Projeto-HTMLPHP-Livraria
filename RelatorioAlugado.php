@@ -60,7 +60,7 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
           <a class="nav-link" href="Cadastrocliente.php">Cadastro Clientes</a>
           </li>
           <li class="nav-item">
-          <a class="nav-link" href="relatoriocliente.php">Relatorio de Clientes</a>
+            <a class="nav-link" href="relatoriocliente.php">Relatorio de Clientes</a>
           </li>
           <li class="nav-item">
           <a class="nav-link" href="Alugarlivro.php">Alugar Livro</a>
@@ -86,42 +86,47 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                    <th>Codigo do Livro</th>
+                    <th>Codigo de locação</th>
+                    <th>Codigo do livro alugado</th>
+                    <th>Codigo do cliente</th>
+                    <th>Nome do cliente</th>
                     <th>Nome do livro</th>
-                    <th>Nome do autor</th>
-                    <th>Data de lançamento</th>
-                    <th>Editora</th>
-                    <th>Preço</th>
-                    <th>Quantidade</th>
+                    <th>Data de inclusão</th>
+                    <th>Data de devolução</th>
                     </tr>
                   </thead>
                   <tbody>
 <?php
-$sql="select * from cadastrolivro";
+$sql="select 
+a.idAlivro, cl.idlivro, a.idCliente, c.nomeCliente, cl.nomeLivro, a.datainclusao, a.datadevolucao
+from alugarlivro as a
+inner join clientes as c on c.idcliente = a.idcliente
+inner join cadastrolivro as cl on cl.idlivro = a.idlivro";
+
 $qu=mysqli_query($con,$sql);
-while($cadastrolivro=  mysqli_fetch_assoc($qu)){
+while($alugarlivro=  mysqli_fetch_assoc($qu)){
 ?>
             <td>
-                <?php echo $cadastrolivro['idLivro']?>
+                <?php echo $alugarlivro['idAlivro']?>
             </td>
             <td>
-                <?php echo $cadastrolivro['nomeLivro']?>
+                <?php echo $alugarlivro['idlivro']?>
             </td>
             <td>
-                <?php echo $cadastrolivro['nomeAutor']?>
+                <?php echo $alugarlivro['idCliente']?>
             </td>
             <td>
-                <?php echo $cadastrolivro['dataLancamento']?>
+                <?php echo $alugarlivro['nomeCliente']?>
             </td>
             <td>
-                <?php echo $cadastrolivro['editor']?>
+                <?php echo $alugarlivro['nomeLivro']?>
             </td>
             <td>
-                <?php echo $cadastrolivro['preco']?>
+                <?php echo $alugarlivro['datainclusao']?>
             </td>
             <td>
-                <?php echo $cadastrolivro['quantidade']?>
-            </td> 
+                <?php echo $alugarlivro['datadevolucao']?>
+            </td>
                     </tr>
 <?php
 }

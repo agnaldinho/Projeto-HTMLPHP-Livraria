@@ -60,7 +60,7 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
           <a class="nav-link" href="Cadastrocliente.php">Cadastro Clientes</a>
           </li>
           <li class="nav-item">
-          <a class="nav-link" href="relatoriocliente.php">Relatorio de Clientes</a>
+            <a class="nav-link" href="relatoriocliente.php">Relatorio de Clientes</a>
           </li>
           <li class="nav-item">
           <a class="nav-link" href="Alugarlivro.php">Alugar Livro</a>
@@ -86,41 +86,41 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                    <th>Codigo do Livro</th>
-                    <th>Nome do livro</th>
-                    <th>Nome do autor</th>
-                    <th>Data de lançamento</th>
-                    <th>Editora</th>
-                    <th>Preço</th>
-                    <th>Quantidade</th>
+                    <th>Codigo do cliente</th>
+                    <th>Nome do cliente</th>
+                    <th>Data de nascimento</th>
+                    <th>Endereço</th>
+                    <th>Número</th>
+                    <th>Cidade</th>
+                    <th>Telefone para contato</th>
                     </tr>
                   </thead>
                   <tbody>
 <?php
-$sql="select * from cadastrolivro";
+$sql="select * from clientes";
 $qu=mysqli_query($con,$sql);
-while($cadastrolivro=  mysqli_fetch_assoc($qu)){
+while($cadastroCliente=  mysqli_fetch_assoc($qu)){
 ?>
             <td>
-                <?php echo $cadastrolivro['idLivro']?>
+                <?php echo $cadastroCliente['idCliente']?>
             </td>
             <td>
-                <?php echo $cadastrolivro['nomeLivro']?>
+                <?php echo $cadastroCliente['nomeCliente']?>
             </td>
             <td>
-                <?php echo $cadastrolivro['nomeAutor']?>
+                <?php echo $cadastroCliente['dataNascimento']?>
             </td>
             <td>
-                <?php echo $cadastrolivro['dataLancamento']?>
+                <?php echo $cadastroCliente['endereco']?>
             </td>
             <td>
-                <?php echo $cadastrolivro['editor']?>
+                <?php echo $cadastroCliente['numero']?>
             </td>
             <td>
-                <?php echo $cadastrolivro['preco']?>
+                <?php echo $cadastroCliente['cidade']?>
             </td>
             <td>
-                <?php echo $cadastrolivro['quantidade']?>
+                <?php echo $cadastroCliente['telefone']?>
             </td> 
                     </tr>
 <?php

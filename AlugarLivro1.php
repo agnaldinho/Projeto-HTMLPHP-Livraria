@@ -55,12 +55,6 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
           <a class="nav-link" href="relatoriocliente.php">Relatorio de Clientes</a>
           </li>
           <li class="nav-item">
-          <a class="nav-link" href="Alugarlivro.php">Alugar Livro</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link" href="relatorioAlugado.php">Relatorio de alocação de livro</a>
-          </li>
-          <li class="nav-item">
           <a class="nav-link" href="logout.php">Sair</a>
           </li>
           <li class="nav-item">
@@ -71,7 +65,7 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
     </div>
 </nav>
 </form>  
-<form method ="POST"  action= "salvarcadastro.php" enctype= "multipart/form-data"> 
+<form method ="POST"  action= "salvarAlugarLivro.php" enctype= "multipart/form-data"> 
 <div class="container-fluid px-1 py-5 mx-auto">
     <div class="row d-flex justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
@@ -81,16 +75,12 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
                 <h5 class="text-center mb-4">Cadastro</h5>
                 <form class="form-card" onsubmit="event.preventDefault()">
                     <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nome do livro<span class="text-danger"> *</span></label> <input type="text" name="nomeLivro" class="form-control"></div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nome do autor<span class="text-danger"> *</span></label> <input type="text" name="nomeAutor" class="form-control"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Codigo do livro<span class="text-danger"> *</span></label> <input type="number" name="idLivro" class="form-control"></div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Codigo do cliente<span class="text-danger"> *</span></label> <input type="number" name="idCliente" class="form-control"> </div>
                     </div>
                     <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nome da editora<span class="text-danger"> *</span></label> <input type="text" name="editor" class="form-control"> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Preço do livro<span class="text-danger"> *</span></label> <input type="number" name="preco" class="form-control"> </div>
-                    </div>
-                    <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Quantidade de livro<span class="text-danger"> *</span></label> <input type="number" name="quantidade" class="form-control"></div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Quantidade de livro<span class="text-danger"> *</span></label> <input type="date" name="dataLancamento" class="form-control"></div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Data de inclusão<span class="text-danger"> *</span></label> <input type="date" name="dataInclusao" class="form-control"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Data de devolução<span class="text-danger"> *</span></label> <input type="date" name="dataDevolucao" class="form-control"> </div>
                     </div>
                     <div class="row justify-content-end">
                         <div><br><button class = "btn btn-primary" type="submit">Cadastrar</button> </div>

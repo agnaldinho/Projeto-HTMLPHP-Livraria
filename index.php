@@ -43,10 +43,16 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
           <a class="nav-link" href="relatoriolivro.php">Relatorio de livros cadastrados</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Exclusão de livro</a>
+            <a class="nav-link" href="Cadastrocliente.php">Cadastro Clientes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Alugar livro</a>
+          <a class="nav-link" href="relatoriocliente.php">Relatorio de Clientes</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="Alugarlivro.php">Alugar Livro</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="relatorioAlugado.php">Relatorio de alocação de livro</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="logout.php">Sair</a>
