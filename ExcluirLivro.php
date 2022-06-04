@@ -13,16 +13,17 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
 <html lang="en">
 
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
   <title>Relatorio</title>
+
   <!-- Custom fonts for this template -->
-  <link href="startbootstrap-sb-admin-2-gh-pages/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="startbootstrap-sb-admin-2-gh-pages/vend/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template -->
@@ -110,46 +111,33 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                    <th>Codigo de locação</th>
-                    <th>Codigo do livro alugado</th>
-                    <th>Codigo do cliente</th>
-                    <th>Nome do cliente</th>
+                    <th>Codigo do Livro</th>
                     <th>Nome do livro</th>
-                    <th>Data de inclusão</th>
-                    <th>Data de devolução</th>
+                    <th>Nome do autor</th>
+                    <th>Quantidade</th>
+                    <th>Locação de livro</th>
                     </tr>
                   </thead>
                   <tbody>
 <?php
-$sql="select 
-a.idAlivro, cl.idlivro, a.idCliente, c.nomeCliente, cl.nomeLivro, a.datainclusao, a.datadevolucao
-from alugarlivro as a
-inner join clientes as c on c.idcliente = a.idcliente
-inner join cadastrolivro as cl on cl.idlivro = a.idlivro";
-
+$sql="select * from cadastrolivro";
 $qu=mysqli_query($con,$sql);
-while($alugarlivro=  mysqli_fetch_assoc($qu)){
+while($cadastrolivro=  mysqli_fetch_assoc($qu)){
 ?>
             <td>
-                <?php echo $alugarlivro['idAlivro']?>
+                <?php echo $cadastrolivro['idLivro']?>
             </td>
             <td>
-                <?php echo $alugarlivro['idlivro']?>
+                <?php echo $cadastrolivro['nomeLivro']?>
             </td>
             <td>
-                <?php echo $alugarlivro['idCliente']?>
+                <?php echo $cadastrolivro['nomeAutor']?>
             </td>
             <td>
-                <?php echo $alugarlivro['nomeCliente']?>
+                <?php echo $cadastrolivro['quantidade']?>
             </td>
             <td>
-                <?php echo $alugarlivro['nomeLivro']?>
-            </td>
-            <td>
-                <?php echo $alugarlivro['datainclusao']?>
-            </td>
-            <td>
-                <?php echo $alugarlivro['datadevolucao']?>
+            <a class='btn btn-sm btn-primary' href="exclusaolivro.php?idLivro=<?php echo $cadastrolivro['idLivro']?>">Deletar</a>
             </td>
                     </tr>
 <?php

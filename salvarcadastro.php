@@ -10,5 +10,5 @@ $dataLancamento=$_POST['dataLancamento'];
 
 $sql= "insert into cadastrolivro (nomeLivro, nomeAutor, editor, preco, quantidade, dataLancamento) values ('$nomeLivro','$nomeAutor','$editor',$preco, $quantidade, '$dataLancamento');";
 $res= $con->query($sql);
-
+header('location:index.php');
 ?>
