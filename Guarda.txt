@@ -1,0 +1,51 @@
+<?php
+    include 'connect.php';
+    $sql = "select * from cadastrolivro";
+    $result = mysqli_query ($con, $sql);
+    while($tbl = mysqli_fetch_array(result))
+    {
+        $idlivro = $tbl = ['idlivro'];
+        $nomeLivro=$tbl["nomeLivro"];
+        $nomeAutor=$tbl["nomeAutor"];
+        $editor=$tbl["editor"];
+        $preco=$tbl["preco"];
+        $quantidade=$tbl["quantidade"];
+        $dataLancamento=$tbl["dataLancamento"];
+
+        echo "<TR>";
+        echo "<TD>$idlivro";
+        echo "</TD>";
+        echo "<TD>$nomeLivro</TD>";
+        echo "<TD>$nomeAutor</TD>";
+        echo "<TD>$editor</TD>";
+        echo "<TD>$preco</TD>";
+        echo "<TD>$quantidade</TD>";
+        echo "<TD>$dataLancamento</TD>";
+        echo "</TR>";
+        
+    }
+   
+?>
+
+<?php
+
+include'connect.php';
+
+// is set 
+if(isset($_POST['sub'])){
+    $u=$_POST['user'];
+    $p=$_POST['pass'];
+    
+   $s= "select * from usuarios where usuario='$u' and senha= '$p'"; 
+   $qu= mysqli_query($con, $s);
+   if(mysqli_num_rows($qu)>0){
+      $f= mysqli_fetch_assoc($qu);
+      $_SESSION['id']=$f['id'];
+      header ('location:index.php');
+   }
+   else{
+    echo "<span style=\"color:white;\">Usuario ou senha não existe</span>";
+   }
+  
+}
+?>

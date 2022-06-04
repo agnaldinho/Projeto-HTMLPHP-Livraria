@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -26,7 +25,6 @@
               <h2 class="text-uppercase text-center mb-5">CRIE A SUA CONTA AQUI</h2>
 
               <form method ="POST"  action= "salvarRegistro.php" enctype= "multipart/form-data">
-
                 <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Usuario" name="usuario">
                 </div>
@@ -34,7 +32,7 @@
                     <input type="password" class="form-control" placeholder="Senha" name="senha">
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Repete a sua senha" name="senhaR">
+                    <input type="password" class="form-control" placeholder="Repete a sua senha" name="senha">
                 </div>
 
                 <div class="form-check d-flex justify-content-center mb-5">
@@ -47,8 +45,8 @@
                         <div><br><button class = "btn btn-primary" type="submit">Registrar</button> </div>
                 </div>
 
-                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
-                    class="fw-bold text-body"><u>Login here</u></a></p>
+                <p class="text-center text-muted mt-5 mb-0">Já tem uma conta? <a href="login.php"
+                    class="fw-bold text-body"><u>Logar AQUI</u></a></p>
 
               </form>
 

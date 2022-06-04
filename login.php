@@ -1,26 +1,3 @@
-<?php
-
-include'connect.php';
-
-// is set 
-if(isset($_POST['sub'])){
-    $u=$_POST['user'];
-    $p=$_POST['pass'];
-    
-   $s= "select * from usuarios where usuario='$u' and senha= '$p'"; 
-   $qu= mysqli_query($con, $s);
-   if(mysqli_num_rows($qu)>0){
-      $f= mysqli_fetch_assoc($qu);
-      $_SESSION['id']=$f['id'];
-      header ('location:index.php');
-   }
-   else{
-    echo "<span style=\"color:white;\">Usuario ou senha não existe</span>";
-   }
-  
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,7 +34,7 @@ if(isset($_POST['sub'])){
     <div class="card-body login-card-body">
       <p class="login-box-msg">Faça login para iniciar sua sessão</p>
 
-      <form method="post">
+      <form action="testelogin.php" method ="POST">
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Usuario" name="user">
           <div class="input-group-append">

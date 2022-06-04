@@ -1,3 +1,14 @@
+<?php
+session_start();
+/* print_r($_SESSION); */
+if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
+{
+    unset($_SESSION['user']);
+    unset($_SESSION['pass']);
+    header('location:login.php');
+}
+    $logado = $_SESSION['user'];
+?>
 <!doctype html>
 <html lang="pt-BR">
   <head>
@@ -18,7 +29,7 @@
         }
       </style>
   <STYLE TYPE="text/css">
-    BODY {background-image: url(https://initiate.alphacoders.com/images/919/cropped-1920-1080-919004.jpg?6078); }
+    BODY {background-image: url(https://initiate.alphacoders.com/images/697/cropped-1920-1080-697523.jpg?2029); }
 </STYLE>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -35,7 +46,7 @@
             <a class="nav-link" href="cadastrolivro.php">Cadastro de livro</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="?page=alterar">Alteração de informação de livro</a>
+            <a class="nav-link" href="relatoriolivro.php">Relatorio de livros cadastrados</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Exclusão de livro</a>
@@ -44,7 +55,7 @@
             <a class="nav-link" href="#">Alugar livro</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pensando...</a>
+          <a class="nav-link" href="logout.php">Sair</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled">Disabled</a>

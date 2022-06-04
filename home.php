@@ -1,6 +1,14 @@
 <?php
-
 include'connect.php';
+session_start();
+/* print_r($_SESSION); */
+if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
+{
+    unset($_SESSION['user']);
+    unset($_SESSION['pass']);
+    header('location:login.php');
+}
+    $logado = $_SESSION['user'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

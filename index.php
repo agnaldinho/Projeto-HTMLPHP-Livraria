@@ -1,9 +1,13 @@
 <?php
-/* include 'connect.php';
-if(empty($_POST['usuario']) || empty($_POST['senha']))
+session_start();
+/* print_r($_SESSION); */
+if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
 {
-  header('location:login.php');
-} */
+    unset($_SESSION['user']);
+    unset($_SESSION['pass']);
+    header('location:login.php');
+}
+    $logado = $_SESSION['user'];
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +40,7 @@ if(empty($_POST['usuario']) || empty($_POST['senha']))
             <a class="nav-link" href="cadastrolivro.php">Cadastro de livro</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="?page=alterar">Alteração de informação de livro</a>
+          <a class="nav-link" href="relatoriolivro.php">Relatorio de livros cadastrados</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Exclusão de livro</a>
@@ -45,7 +49,7 @@ if(empty($_POST['usuario']) || empty($_POST['senha']))
             <a class="nav-link" href="#">Alugar livro</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pensando...</a>
+            <a class="nav-link" href="logout.php">Sair</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled">Disabled</a>
