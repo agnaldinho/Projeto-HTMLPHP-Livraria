@@ -1,5 +1,8 @@
 <?php
-session_start();
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+} 
 /* print_r($_SESSION); */
 if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
 {
@@ -9,6 +12,15 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
 }
     $logado = $_SESSION['user'];
 ?>
+<?php
+
+include 'connect.php';
+$idCliente = $_GET['idCliente'];
+$sql="select * from clientes where idCliente={$idCliente}";
+$query= mysqli_query($con, $sql);
+$cadastroCliente=mysqli_fetch_assoc($query);
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -20,9 +32,9 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   </head>
   <body>
-  <!-- <STYLE TYPE="text/css">
+  <STYLE TYPE="text/css">
     BODY {background-image: url(https://s1.1zoom.me/big3/793/Library_Book_532388_1920x1080.jpg); }
-</STYLE> -->
+</STYLE>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Livraria</a>
@@ -88,25 +100,30 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
   </div>
   </nav>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <form method ="POST"  action= "salvarAlugarLivro.php" enctype= "multipart/form-data"> 
+    <form method ="POST"  action= "salvarClienteedit.php" enctype= "multipart/form-data"> 
 <div class="container-fluid px-1 py-5 mx-auto">
     <div class="row d-flex justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-            <h3 id= "Cor">Cadastro do livro</h3>
+            <h3 id= "Cor">Alteração de dados de cliente</h3>
             <p class="blue-text" id= "Cor">Coloque as informações necessarias</p><br><br><br><br>
             <div class="card">
                 <h5 class="text-center mb-4">Cadastro</h5>
                 <form class="form-card" onsubmit="event.preventDefault()">
                     <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Codigo do livro<span class="text-danger"> *</span></label> <input type="number" name="idLivro" class="form-control"></div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Codigo do cliente<span class="text-danger"> *</span></label> <input type="number" name="idCliente" class="form-control"> </div>
+                        <input type="hidden" name="idCliente" class="form-control" value= "<?php echo $cadastroCliente['idCliente']?>" >
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nome do cliente<span class="text-danger"> *</span></label> <input type="text" name="nomeCliente" class="form-control" value= "<?php echo $cadastroCliente['nomeCliente']?>" ></div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Data de nascimento<span class="text-danger"> *</span></label> <input type="date" name="dataNascimento" class="form-control" value= "<?php echo $cadastroCliente['dataNascimento']?>"> </div>
                     </div>
                     <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Data de inclusão<span class="text-danger"> *</span></label> <input type="date" name="dataInclusao" class="form-control"> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Data de devolução<span class="text-danger"> *</span></label> <input type="date" name="dataDevolucao" class="form-control"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Endereço<span class="text-danger"> *</span></label> <input type="text" name="endereco" class="form-control" value= "<?php echo $cadastroCliente['endereco']?>"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Número<span class="text-danger"> *</span></label> <input type="number" name="numero" class="form-control" value= "<?php echo $cadastroCliente['numero']?>"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Cidade<span class="text-danger"> *</span></label> <input type="text" name="cidade" class="form-control" value= "<?php echo $cadastroCliente['cidade']?>"></div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Telefone para contato<span class="text-danger"> *</span></label> <input type="number" name="telefone" class="form-control" value= "<?php echo $cadastroCliente['telefone']?>"></div>
                     </div>
                     <div class="row justify-content-end">
-                        <div><br><button class = "btn btn-primary" type="submit">Cadastrar</button> </div>
+                        <div><br><button class = "btn btn-primary" type="submit">Editar</button> </div>
                     </div>
                 </form>
             </div>
@@ -114,7 +131,4 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
     </div>
 </div>
 </form>
-
-
-
 </html>

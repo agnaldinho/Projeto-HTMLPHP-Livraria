@@ -70,9 +70,9 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
             Alterar informações
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="cadastrolivro.php">Alterar dados de cliente</a></li>
-            <li><a class="dropdown-item" href="cadastrocliente.php">Alterar dados de livro</a></li>
-            <li><a class="dropdown-item" href="cadastrolivro.php">Exclusão de cliente</a></li>
+            <li><a class="dropdown-item" href="EditarCliente.php">Alterar dados de cliente</a></li>
+            <li><a class="dropdown-item" href="EditarLivro.php">Alterar dados de livro</a></li>
+            <li><a class="dropdown-item" href="excluircliente.php">Exclusão de cliente</a></li>
             <li><a class="dropdown-item" href="excluirlivro.php">Exclusão de livro</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>

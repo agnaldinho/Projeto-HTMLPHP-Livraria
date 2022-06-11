@@ -13,7 +13,7 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
 <html lang="en">
 
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,9 +21,9 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
   <meta name="author" content="">
 
   <title>Relatorio</title>
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!-- Custom fonts for this template -->
-  <link href="startbootstrap-sb-admin-2-gh-pages/vend/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="startbootstrap-sb-admin-2-gh-pages/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template -->
@@ -111,34 +111,45 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                    <th>Codigo do Livro</th>
-                    <th>Nome do livro</th>
-                    <th>Nome do autor</th>
-                    <th>Quantidade</th>
-                    <th>Locação de livro</th>
+                    <th>Codigo do cliente</th>
+                    <th>Nome do cliente</th>
+                    <th>Data de nascimento</th>
+                    <th>Endereço</th>
+                    <th>Número</th>
+                    <th>Cidade</th>
+                    <th>Telefone para contato</th>
                     </tr>
                   </thead>
                   <tbody>
 <?php
-$sql="select * from cadastrolivro";
+$sql="select * from clientes";
 $qu=mysqli_query($con,$sql);
-while($cadastrolivro=  mysqli_fetch_assoc($qu)){
+while($cadastroCliente=  mysqli_fetch_assoc($qu)){
 ?>
             <td>
-                <?php echo $cadastrolivro['idLivro']?>
+                <?php echo $cadastroCliente['idCliente']?>
             </td>
             <td>
-                <?php echo $cadastrolivro['nomeLivro']?>
+                <?php echo $cadastroCliente['nomeCliente']?>
             </td>
             <td>
-                <?php echo $cadastrolivro['nomeAutor']?>
+                <?php echo $cadastroCliente['dataNascimento']?>
             </td>
             <td>
-                <?php echo $cadastrolivro['quantidade']?>
+                <?php echo $cadastroCliente['endereco']?>
             </td>
             <td>
-            <a class='btn btn-sm btn-primary' href="exclusaolivro.php?idLivro=<?php echo $cadastrolivro['idLivro']?>">Deletar</a>
+                <?php echo $cadastroCliente['numero']?>
             </td>
+            <td>
+                <?php echo $cadastroCliente['cidade']?>
+            </td>
+            <td>
+                <?php echo $cadastroCliente['telefone']?>
+            </td> 
+            <td>
+            <a class='btn btn-sm btn-primary' href="editarCliente1.php?idCliente=<?php echo $cadastroCliente['idCliente']?>">Editar</a>
+            </td> 
                     </tr>
 <?php
 }
