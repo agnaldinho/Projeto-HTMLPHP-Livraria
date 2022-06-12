@@ -30,7 +30,7 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
         }
       </style>
   <STYLE TYPE="text/css">
-    BODY {background-image: url(https://initiate.alphacoders.com/images/697/cropped-1920-1080-697523.jpg?2029); }
+    BODY {background-image: url(https://img.freepik.com/fotos-gratis/fundo-de-livros-antigos-estante-de-biblioteca-vintage_53876-160402.jpg?t=st=1654960452~exp=1654961052~hmac=3a974d003d79d2879479ce53f4f94e86854f22124000c5ac748a9bcceb5af4ee&w=1380); }
 </STYLE>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -82,16 +82,15 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
         <li class="nav-item">
           <a class="nav-link" href="Alugarlivro.php">Alugar Livro</a>
           </li>
-        <li class="nav-item">
-            <a class="nav-link" href="logout.php">Sair</a>
+          <li class="nav-item">
+          <a class="nav-link" href="devolucaolivro.php">Devolução de Livro</a>
           </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <a class="btn btn-black" href="logout.php">Sair</a>
       </form>
     </div>
   </div>

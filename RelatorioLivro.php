@@ -89,16 +89,15 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
         <li class="nav-item">
           <a class="nav-link" href="Alugarlivro.php">Alugar Livro</a>
           </li>
-        <li class="nav-item">
-            <a class="nav-link" href="logout.php">Sair</a>
+          <li class="nav-item">
+          <a class="nav-link" href="devolucaolivro.php">Devolução de Livro</a>
           </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <a class="btn btn-black" href="logout.php">Sair</a>
       </form>
     </div>
   </div>

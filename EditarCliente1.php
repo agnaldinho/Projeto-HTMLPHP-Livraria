@@ -32,8 +32,15 @@ $cadastroCliente=mysqli_fetch_assoc($query);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   </head>
   <body>
+  <style>
+        #Cor
+        {
+            text-align: center;
+            color: white;     
+        }
+      </style>
   <STYLE TYPE="text/css">
-    BODY {background-image: url(https://s1.1zoom.me/big3/793/Library_Book_532388_1920x1080.jpg); }
+    BODY {background-image: url(https://img.freepik.com/fotos-gratis/fundo-de-livros-antigos-estante-de-biblioteca-vintage_53876-160402.jpg?t=st=1654960452~exp=1654961052~hmac=3a974d003d79d2879479ce53f4f94e86854f22124000c5ac748a9bcceb5af4ee&w=1380); }
 </STYLE>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -85,16 +92,15 @@ $cadastroCliente=mysqli_fetch_assoc($query);
         <li class="nav-item">
           <a class="nav-link" href="Alugarlivro.php">Alugar Livro</a>
           </li>
-        <li class="nav-item">
-            <a class="nav-link" href="logout.php">Sair</a>
+          <li class="nav-item">
+          <a class="nav-link" href="devolucaolivro.php">Devolução de Livro</a>
           </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <a class="btn btn-black" href="logout.php">Sair</a>
       </form>
     </div>
   </div>

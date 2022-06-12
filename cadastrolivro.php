@@ -29,7 +29,7 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
         }
       </style>
   <STYLE TYPE="text/css">
-    BODY {background-image: url(https://initiate.alphacoders.com/images/697/cropped-1920-1080-697523.jpg?2029); }
+    BODY {background-image: url(https://img.freepik.com/fotos-gratis/fundo-de-livros-antigos-estante-de-biblioteca-vintage_53876-160402.jpg?t=st=1654960452~exp=1654961052~hmac=3a974d003d79d2879479ce53f4f94e86854f22124000c5ac748a9bcceb5af4ee&w=1380); }
 </STYLE>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -81,16 +81,15 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
         <li class="nav-item">
           <a class="nav-link" href="Alugarlivro.php">Alugar Livro</a>
           </li>
-        <li class="nav-item">
-            <a class="nav-link" href="logout.php">Sair</a>
+          <li class="nav-item">
+          <a class="nav-link" href="devolucaolivro.php">Devolução de Livro</a>
           </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <a class="btn btn-black" href="logout.php">Sair</a>
       </form>
     </div>
   </div>
@@ -111,11 +110,11 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
                     </div>
                     <div class="row justify-content-between text-left">
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nome da editora<span class="text-danger"> *</span></label> <input type="text" name="editor" class="form-control"> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Preço do livro<span class="text-danger"> *</span></label> <input type="number" name="preco" class="form-control"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Preço do livro<span class="text-danger"> *</span></label> <input type="float" name="preco" class="form-control"> </div>
                     </div>
                     <div class="row justify-content-between text-left">
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Quantidade de livro<span class="text-danger"> *</span></label> <input type="number" name="quantidade" class="form-control"></div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Quantidade de livro<span class="text-danger"> *</span></label> <input type="date" name="dataLancamento" class="form-control"></div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Data de Lançamento<span class="text-danger"> *</span></label> <input type="date" name="dataLancamento" class="form-control"></div>
                     </div>
                     <div class="row justify-content-end">
                         <div><br><button class = "btn btn-primary" type="submit">Cadastrar</button> </div>

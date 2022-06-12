@@ -11,7 +11,32 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
 ?>
 <!DOCTYPE html>
 <html lang="en">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+.hero-image {
+  background-image: url("img/cropped-1920-1080-346199.jpg");
+  background-color: #cccccc;
+  height: 953px;
+  style="object-fit: cover;"
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+</style>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
@@ -88,16 +113,15 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
         <li class="nav-item">
           <a class="nav-link" href="Alugarlivro.php">Alugar Livro</a>
           </li>
-        <li class="nav-item">
-            <a class="nav-link" href="logout.php">Sair</a>
+          <li class="nav-item">
+          <a class="nav-link" href="devolucaolivro.php">Devolução de Livro</a>
           </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <a class="btn btn-black" href="logout.php">Sair</a>
       </form>
     </div>
   </div>

@@ -20,9 +20,14 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   </head>
   <body>
-  <!-- <STYLE TYPE="text/css">
-    BODY {background-image: url(https://s1.1zoom.me/big3/793/Library_Book_532388_1920x1080.jpg); }
-</STYLE> -->
+  <STYLE TYPE="text/css">
+     #Cor
+        {
+            text-align: center;
+            color: white;     
+        }
+    BODY {background-image: url(https://img.freepik.com/fotos-gratis/fundo-de-livros-antigos-estante-de-biblioteca-vintage_53876-160402.jpg?t=st=1654960452~exp=1654961052~hmac=3a974d003d79d2879479ce53f4f94e86854f22124000c5ac748a9bcceb5af4ee&w=1380); }
+</STYLE>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Livraria</a>
@@ -73,16 +78,15 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
         <li class="nav-item">
           <a class="nav-link" href="Alugarlivro.php">Alugar Livro</a>
           </li>
-        <li class="nav-item">
-            <a class="nav-link" href="logout.php">Sair</a>
+          <li class="nav-item">
+          <a class="nav-link" href="devolucaolivro.php">Devolucão de Livro</a>
           </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <a class="btn btn-black" href="logout.php">Sair</a>
       </form>
     </div>
   </div>
@@ -92,7 +96,7 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
 <div class="container-fluid px-1 py-5 mx-auto">
     <div class="row d-flex justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-            <h3 id= "Cor">Cadastro do livro</h3>
+            <h3 id= "Cor">Cadastro de alugar livro</h3>
             <p class="blue-text" id= "Cor">Coloque as informações necessarias</p><br><br><br><br>
             <div class="card">
                 <h5 class="text-center mb-4">Cadastro</h5>

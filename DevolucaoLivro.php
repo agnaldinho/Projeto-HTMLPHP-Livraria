@@ -73,16 +73,15 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
         <li class="nav-item">
           <a class="nav-link" href="Alugarlivro.php">Alugar Livro</a>
           </li>
-        <li class="nav-item">
-            <a class="nav-link" href="logout.php">Sair</a>
+          <li class="nav-item">
+          <a class="nav-link" href="devolucaolivro.php">Devolução de Livro</a>
           </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <a class="btn btn-black" href="logout.php">Sair</a>
       </form>
     </div>
   </div>
@@ -106,10 +105,10 @@ if((!isset($_SESSION['user']) == true) and (!isset($_SESSION['pass']) == true))
 <?php
 include 'connect.php';
 $sql="select 
-a.idAlivro, cl.idlivro, a.idCliente, c.nomeCliente, cl.nomeLivro, a.datainclusao, a.datadevolucao
+a.idAlivro, cl.idLivro, a.idCliente, c.nomeCliente, cl.nomeLivro, a.datainclusao, a.datadevolucao
 from alugarlivro as a
 inner join clientes as c on c.idcliente = a.idcliente
-inner join cadastrolivro as cl on cl.idlivro = a.idlivro";
+inner join cadastrolivro as cl on cl.idLivro = a.idLivro";
 
 $qu=mysqli_query($con,$sql);
 while($alugarlivro=  mysqli_fetch_assoc($qu)){
@@ -118,7 +117,7 @@ while($alugarlivro=  mysqli_fetch_assoc($qu)){
                 <?php echo $alugarlivro['idAlivro']?>
             </td>
             <td>
-                <?php echo $alugarlivro['idlivro']?>
+                <?php echo $alugarlivro['idLivro']?>
             </td>
             <td>
                 <?php echo $alugarlivro['idCliente']?>
@@ -136,8 +135,7 @@ while($alugarlivro=  mysqli_fetch_assoc($qu)){
                 <?php echo $alugarlivro['datadevolucao']?>
             </td>
             <td>
-            <input type="hidden" name="idAlivro" class="form-control" value= "<?php echo $alugarlivro['idAlivro']?>" >
-            <a class='btn btn-sm btn-primary' href="salvarDevolucao.php?idCliente=<?php echo $alugarlivro['idAlivro']?>">Devolução</a>
+            <a class='btn btn-sm btn-primary' href="salvarDevolucao.php?idAlivro=<?php echo $alugarlivro['idAlivro']?>">Devolução</a>
             </td> 
                     </tr>
 <?php
